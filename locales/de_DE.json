@@ -1,0 +1,10 @@
+{
+    "plugin.name": "Zähler",
+    "actions.counter.restore.title": "Werte wiederherstellen",
+    "actions.counter.long.dropdown.title": "Bei langem Druck",
+    "actions.counter.long.dropdown.substract": "Subtrahieren",
+    "actions.counter.long.dropdown.reset": "Zurücksetzen",
+    "actions.counter.file.title": "In Datei speichern",
+    "actions.counter.file.path": "Dateipfad",
+    "actions.counter.name": "Zähler"
+}
