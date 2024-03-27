@@ -106,7 +106,6 @@ class Counter(ActionBase):
     def on_key_up(self):
         long_press_treshhold = 0.5
 
-        print(f"key up: {time.time() - self.key_down_time}")
         if time.time() - self.key_down_time >= long_press_treshhold:
             self.on_long_press()
         else:
