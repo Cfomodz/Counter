@@ -32,7 +32,10 @@ class Counter(ActionBase):
         super().__init__(action_id=action_id, action_name=action_name,
             deck_controller=deck_controller, page=page, coords=coords, plugin_base=plugin_base)
         
+        self.HAS_CONFIGURATION = True
+        
         self.value = 0
+        self.key_down_time: int = 0
 
     def on_ready(self):
         settings = self.get_settings()
