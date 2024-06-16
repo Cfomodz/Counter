@@ -103,18 +103,12 @@ class Counter(ActionBase):
         settings["file_path"] = entry.get_text()
         self.set_settings(settings)
 
-    def on_key_down(self):
-        self.key_down_time = time.time()
-
-    def on_key_up(self):
-        long_press_treshhold = 0.5
-
-        if time.time() - self.key_down_time >= long_press_treshhold:
-            self.on_long_press()
-        else:
+    def event_callback(self, event: InputEvent, data: dict = None):
+        if event == Input.Key.Events.SHORT_UP:
             self.value += 1
             self.show_value()
-
+        elif event == Input.Key.Events.HOLD_START:
+            self.on_long_press()
 
     def on_long_press(self):
         settings = self.get_settings()
@@ -135,7 +129,6 @@ class Counter(ActionBase):
         if settings.get("save_to_file"):
             with open(settings.get("file_path"), "w") as f:
                 f.write(str(self.value))
-
   
 
 class CounterPlugin(PluginBase):
