@@ -2,6 +2,8 @@ import json
 from src.backend.PluginManager.ActionBase import ActionBase
 from src.backend.PluginManager.PluginBase import PluginBase
 from src.backend.PluginManager.ActionHolder import ActionHolder
+from src.backend.DeckManagement.InputIdentifier import Input, InputEvent
+from src.backend.PluginManager.ActionInputSupport import ActionInputSupport
 
 # Import gtk modules
 import gi
@@ -148,9 +150,14 @@ class CounterPlugin(PluginBase):
         self.post_request_holder = ActionHolder(
             plugin_base=self,
             action_base=Counter,
-            action_id="com_core447_Counter::Counter",
+            action_id_suffix="Counter",
             action_name=self.lm.get("actions.counter.name"),
-            icon=Gtk.Picture.new_for_filename(os.path.join(self.PATH, "assets", "POST.png"))
+            icon=Gtk.Picture.new_for_filename(os.path.join(self.PATH, "assets", "POST.png")),
+            action_support={
+                Input.Key: ActionInputSupport.SUPPORTED,
+                Input.Dial: ActionInputSupport.SUPPORTED,
+                Input.Touchscreen: ActionInputSupport.UNSUPPORTED
+            }
         )
         self.add_action_holder(self.post_request_holder)
 
