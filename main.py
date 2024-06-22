@@ -32,7 +32,7 @@ class Counter(ActionBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         
-        self.HAS_CONFIGURATION = True
+        self.has_configuration = True
         
         self.value = 0
         self.key_down_time: int = 0
