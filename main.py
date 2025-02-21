@@ -49,7 +49,7 @@ class Counter(ActionBase):
         self.restore_switch = Adw.SwitchRow(title=self.plugin_base.lm.get("actions.counter.restore.title"))
         
         self.str_list = Gtk.StringList()
-        self.str_list.append(self.plugin_base.lm.get("actions.counter.long.dropdown.substract"))
+        self.str_list.append(self.plugin_base.lm.get("actions.counter.long.dropdown.Subtract"))
         self.str_list.append(self.plugin_base.lm.get("actions.counter.long.dropdown.reset"))
 
         self.on_long_drop_down = Adw.ComboRow(title=self.plugin_base.lm.get("actions.counter.long.dropdown.title"), model=self.str_list)
@@ -75,7 +75,7 @@ class Counter(ActionBase):
         self.save_to_file.set_active(settings.get("save_to_file", False))
         self.file_path.set_text(settings.get("file_path", ""))
 
-        if settings.get("on_long_drop_down") == "Substract":
+        if settings.get("on_long_drop_down") == "Subtract":
             self.on_long_drop_down.set_selected(0)
         else:
             self.on_long_drop_down.set_selected(1)
@@ -88,7 +88,7 @@ class Counter(ActionBase):
     def on_long_drop_down_changed(self, combo, *args):
         settings = self.get_settings()
         if self.on_long_drop_down.get_selected() == 0:
-            settings["on_long_drop_down"] = "Substract"
+            settings["on_long_drop_down"] = "Subtract"
         else:
             settings["on_long_drop_down"] = "Revert"
         self.set_settings(settings)
@@ -112,7 +112,7 @@ class Counter(ActionBase):
 
     def on_long_press(self):
         settings = self.get_settings()
-        if settings.get("on_long_drop_down") == "Substract":
+        if settings.get("on_long_drop_down") == "Subtract":
             self.value -= 1
         else:
             self.value = 0
