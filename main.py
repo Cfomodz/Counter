@@ -49,7 +49,7 @@ class Counter(ActionBase):
         self.restore_switch = Adw.SwitchRow(title=self.plugin_base.lm.get("actions.counter.restore.title"))
         
         self.str_list = Gtk.StringList()
-        self.str_list.append(self.plugin_base.lm.get("actions.counter.long.dropdown.Subtract"))
+        self.str_list.append(self.plugin_base.lm.get("actions.counter.long.dropdown.subtract"))
         self.str_list.append(self.plugin_base.lm.get("actions.counter.long.dropdown.reset"))
 
         self.on_long_drop_down = Adw.ComboRow(title=self.plugin_base.lm.get("actions.counter.long.dropdown.title"), model=self.str_list)
